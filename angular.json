@@ -16,9 +16,7 @@
             "outputPath": "dist/angular-expert-04",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -26,15 +24,8 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "styles": ["src/styles.css"],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -78,10 +69,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -89,9 +77,92 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
+            "styles": ["src/styles.css"],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "edition-2024-10": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/edition-2024-10",
+      "sourceRoot": "projects/edition-2024-10/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/edition-2024-10",
+            "index": "projects/edition-2024-10/src/index.html",
+            "browser": "projects/edition-2024-10/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/edition-2024-10/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/edition-2024-10/public"
+              }
             ],
+            "styles": ["projects/edition-2024-10/src/styles.css"],
+            "scripts": [],
+            "server": "projects/edition-2024-10/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/edition-2024-10/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "edition-2024-10:build:production"
+            },
+            "development": {
+              "buildTarget": "edition-2024-10:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "projects/edition-2024-10/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/edition-2024-10/public"
+              }
+            ],
+            "styles": ["projects/edition-2024-10/src/styles.css"],
             "scripts": []
           }
         }

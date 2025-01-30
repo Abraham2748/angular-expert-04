@@ -14,18 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-expert-04' title`, () => {
+  it(`should have the 'edition-2024-10' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-expert-04');
+    expect(app.title).toEqual('edition-2024-10');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Hello, angular-expert-04'
-    );
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, edition-2024-10');
   });
 });
